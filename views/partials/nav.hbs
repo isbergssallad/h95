@@ -1,0 +1,22 @@
+<header class="align-items-center site-width">
+    <a href="/"><img src="/h95.png" alt="" width="45px" height="auto"></a>
+    <div class="nav align-items-center gap-2">
+        {{!-- Om användaren är inloggad visas användarnamnet med länk dashboard, annars visas länkar till login och register --}}
+        {{#if currentUser.loggedin}}<a href="/dashboard" style="text-transform:uppercase">{{currentUser.username}}</a>
+        {{else}}
+        <a href="/login">LOGIN</a>
+        <a href="/register">REGISTER</a>
+        {{/if}}
+        <a href="/films">FILMS</a>
+        {{!-- Om användaren är inloggad visa watchlist --}}
+        {{#if currentUser.loggedin}}
+        <a href="/watchlist">WATCHLIST</a>
+        {{/if}}
+        <div class="search-container align-items-center">
+            <form action="/search" method="GET">
+                <input type="text" name="q" class="search-bar" placeholder="Search...">
+                <i class="fa fa-search"></i>
+            </form>
+        </div>
+    </div>
+</header>
